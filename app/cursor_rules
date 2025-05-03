@@ -1,0 +1,28 @@
+# Cursor Configuration
+tech_stack:
+  - TypeScript
+  - Next.js 14
+  - Tailwind CSS
+  - shadcn/ui
+
+code_style:
+  - eslint-airbnb
+  - prettier
+  - TypeScript strict mode
+
+testing:
+  - Playwright for E2E
+  - Jest for unit tests
+  - Minimum 80% coverage
+
+conventions:
+  - Functional components with hooks
+  - Atomic design pattern
+  - Conventional commits
+  - PR templates
+
+documentation:
+  - Next.js Documentation
+  - TypeScript Handbook
+  - Tailwind CSS Docs
+  - shadcn/ui Documentation 

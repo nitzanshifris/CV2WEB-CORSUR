@@ -1,0 +1,222 @@
+import * as pdfParse from "pdf-parse";
+import * as mammoth from "mammoth";
+
+export interface ParsedResume {
+  fullName: string;
+  title: string;
+  email: string;
+  phone: string;
+  summary: string;
+  skills: string[];
+  experience: {
+    title: string;
+    company: string;
+    startDate: string;
+    endDate?: string;
+    description: string;
+  }[];
+  education: {
+    degree: string;
+    institution: string;
+    startDate: string;
+    endDate?: string;
+    description?: string;
+  }[];
+}
+
+export async function parsePDF(file: File): Promise<ParsedResume> {
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const data = await pdfParse(arrayBuffer);
+    const text = data.text;
+
+    // Extract personal information
+    const fullName = extractFullName(text);
+    const title = extractTitle(text);
+    const email = extractEmail(text);
+    const phone = extractPhone(text);
+    const summary = extractSummary(text);
+
+    // Extract sections
+    const skills = extractSkills(text);
+    const experience = extractExperience(text);
+    const education = extractEducation(text);
+
+    return {
+      fullName,
+      title,
+      email,
+      phone,
+      summary,
+      skills,
+      experience,
+      education,
+    };
+  } catch (error) {
+    console.error("Error parsing PDF:", error);
+    throw new Error("Failed to parse PDF file");
+  }
+}
+
+export async function parseDOCX(file: File): Promise<ParsedResume> {
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const result = await mammoth.extractRawText({ arrayBuffer });
+    const text = result.value;
+
+    // Extract personal information
+    const fullName = extractFullName(text);
+    const title = extractTitle(text);
+    const email = extractEmail(text);
+    const phone = extractPhone(text);
+    const summary = extractSummary(text);
+
+    // Extract sections
+    const skills = extractSkills(text);
+    const experience = extractExperience(text);
+    const education = extractEducation(text);
+
+    return {
+      fullName,
+      title,
+      email,
+      phone,
+      summary,
+      skills,
+      experience,
+      education,
+    };
+  } catch (error) {
+    console.error("Error parsing DOCX:", error);
+    throw new Error("Failed to parse DOCX file");
+  }
+}
+
+function extractFullName(text: string): string {
+  // Look for common name patterns
+  const nameRegex = /^[A-Z][a-z]+(?: [A-Z][a-z]+)+/m;
+  const match = text.match(nameRegex);
+  return match ? match[0] : "";
+}
+
+function extractTitle(text: string): string {
+  // Look for common title patterns
+  const titleRegex = /(?:Senior|Junior|Lead|Principal)?\s*(?:Software|Web|Frontend|Backend|Full Stack|DevOps|Data|Machine Learning|AI|Cloud|Security)?\s*(?:Engineer|Developer|Architect|Scientist|Analyst|Consultant)/i;
+  const match = text.match(titleRegex);
+  return match ? match[0] : "";
+}
+
+function extractEmail(text: string): string {
+  // Look for email patterns
+  const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+  const match = text.match(emailRegex);
+  return match ? match[0] : "";
+}
+
+function extractPhone(text: string): string {
+  // Look for phone number patterns
+  const phoneRegex = /(?:\+\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/;
+  const match = text.match(phoneRegex);
+  return match ? match[0] : "";
+}
+
+function extractSummary(text: string): string {
+  // Look for summary section
+  const summaryRegex = /(?:Summary|About|Profile)[:\s]+([\s\S]+?)(?=\n\n|$)/i;
+  const match = text.match(summaryRegex);
+  return match ? match[1].trim() : "";
+}
+
+function extractSkills(text: string): string[] {
+  // Look for skills section
+  const skillsRegex = /(?:Skills|Technical Skills|Core Competencies)[:\s]+([\s\S]+?)(?=\n\n|$)/i;
+  const match = text.match(skillsRegex);
+  if (!match) return [];
+
+  // Split skills by commas, semicolons, or newlines
+  const skillsText = match[1].trim();
+  return skillsText
+    .split(/[,;\n]/)
+    .map((skill) => skill.trim())
+    .filter((skill) => skill.length > 0);
+}
+
+function extractExperience(text: string): ParsedResume["experience"] {
+  // Look for experience section
+  const experienceRegex = /(?:Experience|Work Experience|Professional Experience)[:\s]+([\s\S]+?)(?=\n\n|$)/i;
+  const match = text.match(experienceRegex);
+  if (!match) return [];
+
+  const experienceText = match[1].trim();
+  const entries = experienceText.split(/\n(?=\w)/);
+
+  return entries.map((entry) => {
+    // Extract company and title
+    const titleRegex = /(?:Senior|Junior|Lead|Principal)?\s*(?:Software|Web|Frontend|Backend|Full Stack|DevOps|Data|Machine Learning|AI|Cloud|Security)?\s*(?:Engineer|Developer|Architect|Scientist|Analyst|Consultant)/i;
+    const titleMatch = entry.match(titleRegex);
+    const title = titleMatch ? titleMatch[0] : "";
+
+    const companyRegex = /at\s+([A-Za-z0-9\s&]+)/i;
+    const companyMatch = entry.match(companyRegex);
+    const company = companyMatch ? companyMatch[1].trim() : "";
+
+    // Extract dates
+    const dateRegex = /(\d{4}(?:-\d{2})?)\s*(?:-|to|–)\s*(\d{4}(?:-\d{2})?|Present)/i;
+    const dateMatch = entry.match(dateRegex);
+    const startDate = dateMatch ? dateMatch[1] : "";
+    const endDate = dateMatch && dateMatch[2] !== "Present" ? dateMatch[2] : undefined;
+
+    // Extract description
+    const descriptionRegex = /(?:Description|Responsibilities|Achievements)[:\s]+([\s\S]+?)(?=\n|$)/i;
+    const descriptionMatch = entry.match(descriptionRegex);
+    const description = descriptionMatch ? descriptionMatch[1].trim() : "";
+
+    return {
+      title,
+      company,
+      startDate,
+      endDate,
+      description,
+    };
+  });
+}
+
+function extractEducation(text: string): ParsedResume["education"] {
+  // Look for education section
+  const educationRegex = /(?:Education|Academic Background)[:\s]+([\s\S]+?)(?=\n\n|$)/i;
+  const match = text.match(educationRegex);
+  if (!match) return [];
+
+  const educationText = match[1].trim();
+  const entries = educationText.split(/\n(?=\w)/);
+
+  return entries.map((entry) => {
+    // Extract degree and institution
+    const degreeRegex = /(?:Bachelor|Master|PhD|Doctorate|B\.S\.|M\.S\.|Ph\.D\.)\s+(?:of|in)?\s+([A-Za-z\s]+)/i;
+    const degreeMatch = entry.match(degreeRegex);
+    const degree = degreeMatch ? degreeMatch[0].trim() : "";
+
+    const institutionRegex = /at\s+([A-Za-z0-9\s&]+)/i;
+    const institutionMatch = entry.match(institutionRegex);
+    const institution = institutionMatch ? institutionMatch[1].trim() : "";
+
+    // Extract dates
+    const dateRegex = /(\d{4}(?:-\d{2})?)\s*(?:-|to|–)\s*(\d{4}(?:-\d{2})?|Present)/i;
+    const dateMatch = entry.match(dateRegex);
+    const startDate = dateMatch ? dateMatch[1] : "";
+    const endDate = dateMatch && dateMatch[2] !== "Present" ? dateMatch[2] : undefined;
+
+    // Extract description
+    const descriptionRegex = /(?:Description|Achievements|Thesis)[:\s]+([\s\S]+?)(?=\n|$)/i;
+    const descriptionMatch = entry.match(descriptionRegex);
+    const description = descriptionMatch ? descriptionMatch[1].trim() : undefined;
+
+    return {
+      degree,
+      institution,
+      startDate,
+      endDate,
+      description,
+    };
+  });
+} 

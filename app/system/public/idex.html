@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JustLiquidate – Fast Overstock Cash</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #222;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: url('https://yourimage.com/handshake.jpg') center/cover no-repeat;
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero-overlay {
+      background: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      background-color: #00b074;
+      color: white;
+      font-size: 18px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.05);
+      background-color: #009761;
+    }
+
+    /* TILES SECTION */
+    .tiles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    .tile-box {
+      width: 250px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      background: white;
+    }
+
+    .tile-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .tile-box:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .tile-hover-text {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .tile-box:hover .tile-hover-text {
+      display: block;
+    }
+
+    /* TESTIMONIAL SECTION */
+    .testimonial {
+      background: #111;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .testimonial blockquote {
+      font-size: 20px;
+      font-style: italic;
+      margin: 0 auto 20px;
+      max-width: 700px;
+    }
+
+    .testimonial cite {
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    /* PARTNER SECTION */
+    .partner-tile {
+      width: 200px;
+      text-align: center;
+      margin: 20px;
+    }
+
+    .partner-tile img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .partner-caption {
+      font-size: 14px;
+      margin-top: 6px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Turn Your Overstock into Cash. Fast.</h1>
+      <p>No hassle. No long forms. Instant quotes from NJ's fastest liquidator.</p>
+      <a href="#quote" class="cta-btn">💰 Get My Free Quote</a>
+    </div>
+  </section>
+
+  <!-- USE CASE TILES -->
+  <section class="tiles">
+    <div class="tile-box">
+      <img src="https://yourimage.com/retail.jpg" alt="Retail Shops">
+      <div class="tile-hover-text">See how we help →</div>
+    </div>
+    <div class="tile-box">
+      <img src="https://yourimage.com/supermarket.jpg" alt="Supermarkets">
+      <div class="tile-hover-text">See how we help →</div>
+    </div>
+    <div class="tile-box">
+      <img src="https://yourimage.com/logistics.jpg" alt="Logistics">
+      <div class="tile-hover-text">See how we help →</div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section style="text-align:center;">
+    <h2>Our Partners Include:</h2>
+    <div style="display:flex; justify-content:center; flex-wrap:wrap;">
+      <div class="partner-tile">
+        <img src="https://yourimage.com/forklift.jpg" alt="Forklift">
+        <p class="partner-caption">Tool Distributor – Edison, NJ</p>
+      </div>
+      <div class="partner-tile">
+        <img src="https://yourimage.com/appliances.jpg" alt="Appliances">
+        <p class="partner-caption">Appliance Warehouse – Paterson, NJ</p>
+      </div>
+      <div class="partner-tile">
+        <img src="https://yourimage.com/outlet.jpg" alt="Outlet">
+        <p class="partner-caption">Outlet Retailer – Jersey City, NJ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial">
+    <blockquote>“So easy. Lior provided exceptional service and ensured a smooth process from start to finish.”</blockquote>
+    <cite>– Mike G, NJ Apparel Seller</cite>
+  </section>
+
+</body>
+</html>
+
