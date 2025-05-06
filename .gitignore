@@ -34,3 +34,5 @@ next-env.d.ts
 
 node_modules/
 *.zip
+
+**/.claude/settings.local.json
