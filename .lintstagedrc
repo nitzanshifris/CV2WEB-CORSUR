@@ -1,0 +1,90 @@
+{
+  "*.{js,jsx,ts,tsx}": [
+    "prettier --write",
+    "eslint --fix --max-warnings 0",
+    "jest --bail --findRelatedTests",
+    "tsc --noEmit"
+  ],
+  "*.{json,md,yml,yaml}": [
+    "prettier --write"
+  ],
+  "*.{css,scss}": [
+    "prettier --write",
+    "stylelint --fix"
+  ],
+  "package.json": [
+    "prettier-package-json --write"
+  ],
+  ".env*": [
+    "dotenv-linter"
+  ],
+  "*.sh": [
+    "shellcheck"
+  ],
+  "Dockerfile*": [
+    "hadolint"
+  ],
+  "*.sql": [
+    "sqlfluff fix --force",
+    "sqlfluff lint"
+  ],
+  "*.{graphql,gql}": [
+    "prettier --write",
+    "graphql-schema-linter"
+  ],
+  "*.proto": [
+    "buf format -w",
+    "buf lint"
+  ],
+  "*.{html,htm}": [
+    "prettier --write",
+    "htmlhint"
+  ],
+  "*.xml": [
+    "xmllint --format"
+  ],
+  "*.toml": [
+    "taplo format"
+  ],
+  "*.{tf,tfvars}": [
+    "terraform fmt"
+  ],
+  "*.go": [
+    "gofmt -w",
+    "golangci-lint run"
+  ],
+  "*.py": [
+    "black",
+    "isort",
+    "pylint"
+  ],
+  "*.rs": [
+    "rustfmt",
+    "cargo clippy"
+  ],
+  "*.{kt,kts}": [
+    "ktlint -F"
+  ],
+  "*.java": [
+    "google-java-format -i",
+    "checkstyle"
+  ],
+  "*.swift": [
+    "swiftformat",
+    "swiftlint autocorrect",
+    "swiftlint"
+  ],
+  "*.rb": [
+    "rubocop -a"
+  ],
+  "*.php": [
+    "php-cs-fixer fix",
+    "phpcs"
+  ],
+  "*.{c,cpp,h,hpp}": [
+    "clang-format -i",
+    "cppcheck"
+  ],
+  "!**/.cursor/universal-cursorrules.json": [],
+  "!**/.cursor/rules/universal-cursorrules.json": []
+} 

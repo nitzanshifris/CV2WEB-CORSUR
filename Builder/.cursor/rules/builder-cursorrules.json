@@ -1,0 +1,116 @@
+{
+  "rules": {
+    "context_initialization": {
+      "description": "נקודת התחלה לכל אינטראקציה",
+      "steps": [
+        "ALWAYS read `.notes/project_overview.md` and `.notes/task_list.md`",
+        "Load Builder-specific context from `.notes/parser_schema.md`",
+        "Consider performance and fallback strategies"
+      ]
+    },
+    "operational_protocol": {
+      "description": "כיצד לגשת למשימות Builder",
+      "before_action": [
+        "Create a MECE task breakdown",
+        "Identify fallback mechanisms",
+        "Consider edge cases for parsing"
+      ],
+      "code_changes": [
+        "Read relevant code sections before editing",
+        "Preserve existing functionality",
+        "Maintain type safety",
+        "Implement proper error handling"
+      ]
+    },
+    "parser_standards": [
+      "Implement fallback mechanisms",
+      "Validate extracted data",
+      "Handle edge cases gracefully",
+      "Assign confidence scores to extracted fields",
+      "Normalize data formats"
+    ],
+    "template_standards": [
+      "Ensure responsive design",
+      "Maintain semantic HTML",
+      "Optimize for print if needed",
+      "Support theme customization",
+      "Ensure accessibility compliance"
+    ],
+    "deployment_standards": [
+      "Implement comprehensive error handling",
+      "Provide detailed status updates",
+      "Enable rollback mechanisms",
+      "Validate deployment configurations",
+      "Secure sensitive parameters"
+    ],
+    "file_structure": {
+      "parsers": {
+        "organization": "One parser module per file format",
+        "pattern": "Implement common interface across parsers",
+        "fallbacks": "Include secondary parser options"
+      },
+      "templates": {
+        "organization": "Group by profession type",
+        "pattern": "Separate structure from styling",
+        "customization": "Support theme variables"
+      }
+    },
+    "parser_optimization": {
+      "techniques": [
+        "Use Web Workers for CPU-intensive parsing",
+        "Implement incremental processing for large files",
+        "Cache processed results",
+        "Use streaming where possible"
+      ]
+    },
+    "edge_case_handling": [
+      "Multi-column resumes",
+      "Tables and grids",
+      "Graphics-heavy resumes",
+      "Non-standard formats",
+      "Missing critical fields",
+      "Inconsistent styling",
+      "Multilingual resumes"
+    ],
+    "security_requirements": [
+      "NEVER execute untrusted code",
+      "ALWAYS sanitize content before processing",
+      "NEVER store sensitive resume data longer than needed",
+      "ALWAYS validate templates before rendering"
+    ],
+    "error_handling": {
+      "error_codes": {
+        "PARSE_": "Parsing errors",
+        "TMPL_": "Template errors",
+        "RENDER_": "Rendering errors",
+        "DEPLOY_": "Deployment errors"
+      },
+      "structure": {
+        "code": "Error code (e.g., PARSE_INVALID_FORMAT)",
+        "message": "Human-readable error message",
+        "details": "Additional error context"
+      }
+    },
+    "performance_requirements": {
+      "parsing": "< 2 seconds for standard documents",
+      "rendering": "< 1 second for template rendering",
+      "preview": "< 3 seconds for preview generation",
+      "deployment": "< 30 seconds for complete deployment"
+    },
+    "modes": {
+      "base": {
+        "description": "For routine parsing and template tasks"
+      },
+      "enhanced": {
+        "description": "For complex parsing logic",
+        "additional_context": [
+          "Advanced regex patterns",
+          "Heuristic extraction techniques",
+          "ML-assisted parsing strategies",
+          "Performance optimization techniques"
+        ]
+      }
+    },
+    "opening_prompt": "I'm working on the CV2Web project, specifically the Builder team (CV2WEB-CURSOR). I'm implementing [FEATURE] based on the project overview in @.notes/project_overview.md. You are an expert in Node.js, resume parsing, and website generation. You excel at creating robust, scalable backend services. Please help me with the following task: [TASK DESCRIPTION]"
+  }
+}

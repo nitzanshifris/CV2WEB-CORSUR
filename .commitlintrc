@@ -1,0 +1,87 @@
+{
+  "extends": [
+    "@commitlint/config-conventional",
+    "@commitlint/config-lerna-scopes"
+  ],
+  "rules": {
+    "type-enum": [
+      2,
+      "always",
+      [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "build",
+        "ci",
+        "chore",
+        "revert",
+        "security",
+        "deps",
+        "wip"
+      ]
+    ],
+    "type-case": [2, "always", "lower-case"],
+    "type-empty": [2, "never"],
+    "type-max-length": [2, "always", 10],
+    "scope-case": [2, "always", "lower-case"],
+    "scope-empty": [2, "never"],
+    "scope-max-length": [2, "always", 20],
+    "scope-enum": [
+      2,
+      "always",
+      [
+        "ui",
+        "services",
+        "builder",
+        "deps",
+        "config",
+        "auth",
+        "api",
+        "db",
+        "test",
+        "docs",
+        "ci",
+        "build",
+        "security",
+        "perf",
+        "refactor"
+      ]
+    ],
+    "subject-case": [
+      2,
+      "never",
+      ["sentence-case", "start-case", "pascal-case", "upper-case"]
+    ],
+    "subject-empty": [2, "never"],
+    "subject-full-stop": [2, "never", "."],
+    "subject-max-length": [2, "always", 72],
+    "subject-min-length": [2, "always", 10],
+    "body-leading-blank": [2, "always"],
+    "body-max-line-length": [2, "always", 100],
+    "body-min-length": [2, "always", 20],
+    "footer-leading-blank": [2, "always"],
+    "footer-max-line-length": [2, "always", 100],
+    "header-max-length": [2, "always", 72],
+    "header-min-length": [2, "always", 20],
+    "references-empty": [2, "never"],
+    "signed-off-by": [2, "always", "Signed-off-by:"],
+    "trailer-exists": [2, "always", "Signed-off-by:"],
+    "breaking-not-in-body": [2, "always"],
+    "breaking-not-in-footer": [2, "always"],
+    "breaking-not-in-header": [2, "always"],
+    "breaking-not-in-subject": [2, "always"],
+    "breaking-not-in-type": [2, "always"],
+    "breaking-not-in-scope": [2, "always"]
+  },
+  "parserPreset": {
+    "parserOpts": {
+      "issuePrefixes": ["#"],
+      "referenceActions": ["closes", "fixes", "resolves"],
+      "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+    }
+  }
+} 

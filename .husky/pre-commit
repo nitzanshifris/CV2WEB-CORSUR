@@ -1,0 +1,62 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run prettier
+echo "🔍 Checking code format..."
+npm run format
+
+# Run eslint
+echo "🔍 Running linter..."
+npm run lint
+
+# Run type checking
+echo "🔍 Checking types..."
+npm run type-check
+
+# Run tests
+echo "🔍 Running tests..."
+npm run test
+
+# Run security audit
+echo "🔍 Running security audit..."
+npm audit
+
+# Run dependency check
+echo "🔍 Checking dependencies..."
+npm run validate
+
+# Run build
+echo "🔍 Building project..."
+npm run build
+
+# Run size check
+echo "🔍 Checking bundle size..."
+npm run size
+
+# Run performance check
+echo "🔍 Checking performance..."
+npm run perf
+
+# Run accessibility check
+echo "🔍 Checking accessibility..."
+npm run a11y
+
+# Run compatibility check
+echo "🔍 Checking browser compatibility..."
+npm run compat
+
+# Run documentation check
+echo "🔍 Checking documentation..."
+npm run docs
+
+# Run changelog check
+echo "🔍 Checking changelog..."
+npm run changelog
+
+# Run license check
+echo "🔍 Checking licenses..."
+npm run license
+
+# Run git hooks
+echo "🔍 Running git hooks..."
+npm run git-hooks 

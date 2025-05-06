@@ -1,0 +1,158 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run commitlint
+echo "🔍 Checking commit message..."
+npx --no -- commitlint --edit ${1}
+
+# Run conventional commit check
+echo "🔍 Checking conventional commit..."
+npx --no -- conventional-commit-check --edit ${1}
+
+# Run commit message length check
+echo "🔍 Checking commit message length..."
+npx --no -- commit-message-length-check --edit ${1}
+
+# Run commit message format check
+echo "🔍 Checking commit message format..."
+npx --no -- commit-message-format-check --edit ${1}
+
+# Run commit message scope check
+echo "🔍 Checking commit message scope..."
+npx --no -- commit-message-scope-check --edit ${1}
+
+# Run commit message type check
+echo "🔍 Checking commit message type..."
+npx --no -- commit-message-type-check --edit ${1}
+
+# Run commit message subject check
+echo "🔍 Checking commit message subject..."
+npx --no -- commit-message-subject-check --edit ${1}
+
+# Run commit message body check
+echo "🔍 Checking commit message body..."
+npx --no -- commit-message-body-check --edit ${1}
+
+# Run commit message footer check
+echo "🔍 Checking commit message footer..."
+npx --no -- commit-message-footer-check --edit ${1}
+
+# Run commit message breaking check
+echo "🔍 Checking commit message breaking..."
+npx --no -- commit-message-breaking-check --edit ${1}
+
+# Run commit message references check
+echo "🔍 Checking commit message references..."
+npx --no -- commit-message-references-check --edit ${1}
+
+# Run commit message signed-off check
+echo "🔍 Checking commit message signed-off..."
+npx --no -- commit-message-signed-off-check --edit ${1}
+
+# Run commit message trailer check
+echo "🔍 Checking commit message trailer..."
+npx --no -- commit-message-trailer-check --edit ${1}
+
+# Run commit message issue check
+echo "🔍 Checking commit message issue..."
+npx --no -- commit-message-issue-check --edit ${1}
+
+# Run commit message note check
+echo "🔍 Checking commit message note..."
+npx --no -- commit-message-note-check --edit ${1}
+
+# Run commit message action check
+echo "🔍 Checking commit message action..."
+npx --no -- commit-message-action-check --edit ${1}
+
+# Run commit message prefix check
+echo "🔍 Checking commit message prefix..."
+npx --no -- commit-message-prefix-check --edit ${1}
+
+# Run commit message suffix check
+echo "🔍 Checking commit message suffix..."
+npx --no -- commit-message-suffix-check --edit ${1}
+
+# Run commit message case check
+echo "🔍 Checking commit message case..."
+npx --no -- commit-message-case-check --edit ${1}
+
+# Run commit message empty check
+echo "🔍 Checking commit message empty..."
+npx --no -- commit-message-empty-check --edit ${1}
+
+# Run commit message max length check
+echo "🔍 Checking commit message max length..."
+npx --no -- commit-message-max-length-check --edit ${1}
+
+# Run commit message min length check
+echo "🔍 Checking commit message min length..."
+npx --no -- commit-message-min-length-check --edit ${1}
+
+# Run commit message full stop check
+echo "🔍 Checking commit message full stop..."
+npx --no -- commit-message-full-stop-check --edit ${1}
+
+# Run commit message leading blank check
+echo "🔍 Checking commit message leading blank..."
+npx --no -- commit-message-leading-blank-check --edit ${1}
+
+# Run commit message max line length check
+echo "🔍 Checking commit message max line length..."
+npx --no -- commit-message-max-line-length-check --edit ${1}
+
+# Run commit message min line length check
+echo "🔍 Checking commit message min line length..."
+npx --no -- commit-message-min-line-length-check --edit ${1}
+
+# Run commit message footer max line length check
+echo "🔍 Checking commit message footer max line length..."
+npx --no -- commit-message-footer-max-line-length-check --edit ${1}
+
+# Run commit message footer min line length check
+echo "🔍 Checking commit message footer min line length..."
+npx --no -- commit-message-footer-min-line-length-check --edit ${1}
+
+# Run commit message header max length check
+echo "🔍 Checking commit message header max length..."
+npx --no -- commit-message-header-max-length-check --edit ${1}
+
+# Run commit message header min length check
+echo "🔍 Checking commit message header min length..."
+npx --no -- commit-message-header-min-length-check --edit ${1}
+
+# Run commit message references empty check
+echo "🔍 Checking commit message references empty..."
+npx --no -- commit-message-references-empty-check --edit ${1}
+
+# Run commit message signed-off by check
+echo "🔍 Checking commit message signed off by..."
+npx --no -- commit-message-signed-off-by-check --edit ${1}
+
+# Run commit message trailer exists check
+echo "🔍 Checking commit message trailer exists..."
+npx --no -- commit-message-trailer-exists-check --edit ${1}
+
+# Run commit message breaking not in body check
+echo "🔍 Checking commit message breaking not in body..."
+npx --no -- commit-message-breaking-not-in-body-check --edit ${1}
+
+# Run commit message breaking not in footer check
+echo "🔍 Checking commit message breaking not in footer..."
+npx --no -- commit-message-breaking-not-in-footer-check --edit ${1}
+
+# Run commit message breaking not in header check
+echo "🔍 Checking commit message breaking not in header..."
+npx --no -- commit-message-breaking-not-in-header-check --edit ${1}
+
+# Run commit message breaking not in subject check
+echo "🔍 Checking commit message breaking not in subject..."
+npx --no -- commit-message-breaking-not-in-subject-check --edit ${1}
+
+# Run commit message breaking not in type check
+echo "🔍 Checking commit message breaking not in type..."
+npx --no -- commit-message-breaking-not-in-type-check --edit ${1}
+
+# Run commit message breaking not in scope check
+echo "🔍 Checking commit message breaking not in scope..."
+npx --no -- commit-message-breaking-not-in-scope-check --edit ${1} 

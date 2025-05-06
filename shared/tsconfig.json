@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "purpose": "TypeScript configuration for the shared package, enforcing strict typing and consistent build output for all shared utilities and types.",
+    "owner": "Project Lead",
+    "last_updated": "2024-06-09",
+    "update_process": "Update this file when TypeScript settings or build requirements change. All changes must be approved by the Project Lead. Reference related docs in shared/ and .notes/."
+  },
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es2020", "dom"],
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

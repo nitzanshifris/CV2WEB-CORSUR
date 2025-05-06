@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "purpose": "Shared package for common utilities, types, and dependencies used across all CV2Web subprojects.",
+    "owner": "Project Lead",
+    "last_updated": "2024-06-09",
+    "update_process": "Update this file when shared dependencies, scripts, or build settings change. All changes must be approved by the Project Lead. Reference related docs in shared/ and .notes/."
+  },
+  "name": "@cv2web/shared",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint src --ext .ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,16 @@
+# CODEOWNERS for CV2Web
+
+# Main Owner for the whole repository
+*       @main-owner
+
+# UI team
+/UI/    @ui-team
+
+# Builder team
+/Builder/    @builder-team
+
+# Services team
+/Services/   @services-team
+
+# Shared code
+/shared/     @main-owner 

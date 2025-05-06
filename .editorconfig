@@ -1,0 +1,107 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# TypeScript and JavaScript files
+[*.{ts,tsx,js,jsx}]
+indent_style = space
+indent_size = 2
+quote_type = single
+curly_bracket_next_line = false
+spaces_around_operators = true
+spaces_around_brackets = inside
+indent_brace_style = K&R
+max_line_length = 100
+
+# JSON files
+[*.json]
+indent_style = space
+indent_size = 2
+quote_type = double
+max_line_length = 80
+
+# YAML files
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 80
+
+# CSS files
+[*.css]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# HTML files
+[*.html]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# Shell scripts
+[*.sh]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# Docker files
+[Dockerfile]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# Git config files
+[.git*]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# Package files
+[package.json]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# Config files
+[*.config.{js,ts}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# Test files
+[*.{test,spec}.{js,ts,jsx,tsx}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# Documentation files
+[*.{md,mdx}]
+trim_trailing_whitespace = false
+max_line_length = 80
+
+# Generated files
+[dist/**]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+max_line_length = 100 
